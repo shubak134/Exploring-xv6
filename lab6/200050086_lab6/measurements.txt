@@ -1,0 +1,75 @@
+Default scheduler
+
+$ test1 4
+*Case1: Parent has no children*
+wait2 status: -1
+*Case2: Parent has children*
+Child 9 created
+Child 10 created
+Child 11 created
+Child 12 created
+Child 9 finished
+Child 10 finishedChild 11 finished
+Child 12 finished
+
+Child no. 0, Child pid: 9 exited with Status: 9, Waiting Time: 29, Run Time: 10
+Child no. 1, Child pid: 10 exited with Status: 10, Waiting Time: 30, Run Time: 10
+Child no. 2, Child pid: 11 exited with Status: 11, Waiting Time: 30, Run Time: 10
+Child no. 3, Child pid: 12 exited with Status: 12, Waiting Time: 30, Run Time: 9
+$     
+$ 
+$ test2 4
+*Case1: Parent has no children*
+wait2 status: -1
+*Case2: Parent has children*
+Child 16 created
+Child 16 finished
+Child 17 created
+Child 18 created
+Child 19 created
+Child no. 0, Child pid: 16 exited with Status: 16, Waiting Time: 1, Run Time: 0
+Child 17 finished
+Child no. 1, Child pid: 17 exited with Status: 17, Waiting Time: 29, Run Time: 14
+Child 18 finished
+Child no. 2, Child pid: 18 exited with Status: 18, Waiting Time: 40, Run Time: 25
+Child 19 finished
+Child no. 3, Child pid: 19 exited with Status: 19, Waiting Time: 40, Run Time: 41
+
+
+Modified scheduler
+
+$ test1 4
+*Case1: Parent has no children*
+wait2 status: -1
+*Case2: Parent has children*
+Child 4 created
+Child 5 created
+Child 6 created
+Child 7 created
+Child 4 finished
+Child no. 0, Child pid: 4 exited with Status: 4, Waiting Time: 17, Run Time: 9
+Child 6 finished
+Child no. 1, Child pid: 6 exited with Status: 6, Waiting Time: 20, Run Time: 10
+Child 7 finished
+Child no. 2, Child pid: 7 exited with Status: 7, Waiting Time: 31, Run Time: 10
+Child 5 finished
+Child no. 3, Child pid: 5 exited with Status: 5, Waiting Time: 32, Run Time: 13
+$       
+$ 
+$ test2 4
+*Case1: Parent has no children*
+wait2 status: -1
+*Case2: Parent has children*
+Child 11 created
+Child 11 finished
+Child 12 created
+Child 13 created
+Child 14 created
+Child no. 0, Child pid: 11 exited with Status: 11, Waiting Time: 1, Run Time: 0
+Child 12 finished
+Child no. 1, Child pid: 12 exited with Status: 12, Waiting Time: 20, Run Time: 12
+Child 14 finished
+Child no. 2, Child pid: 14 exited with Status: 14, Waiting Time: 31, Run Time: 33
+Child 13 finished
+Child no. 3, Child pid: 13 exited with Status: 13, Waiting Time: 49, Run Time: 26
+$ 
